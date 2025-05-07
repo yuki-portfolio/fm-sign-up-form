@@ -2,7 +2,21 @@ body {
     background-image: url(images/bg-intro-mobile.png);
     background-color: rgba(255,121,120, 0.9);
     font-family: 'Poppins';
+    cursor: default;
 }
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+  }
 
 button {
     border: none;
@@ -30,8 +44,12 @@ button {
     border-radius: var(--soft-borders);
     background-color: white;
     box-shadow: 0px 9px 1px rgb(217,101,102);
+    margin-left: 7.5%;
 }
 
+form {
+    width: 95%;
+}
 
 /* -------BUTTONS---------- */
 
@@ -43,12 +61,13 @@ button {
     letter-spacing: 0.8px;
     line-height: 1.5;
     font-size: 15px;
-    width: 95%;
-    height: 80px;
+    width: 85%;
+    height: 70px;
     margin-bottom: 6%;
     margin-top: 3%;
     border-radius: var(--soft-borders);
     box-shadow: 0px 9px 1px rgb(217,101,102);
+    transition: all 100ms;
 }
 
 .submit-button {
@@ -61,6 +80,8 @@ button {
     font-weight: 500;
     color: white;
     background-color: hsl(154, 59%, 51%);
+    box-shadow: 0px 6px 1px #32b278;
+    transition: all 100ms;
 }
 
 
@@ -81,17 +102,17 @@ button {
 }
 
 .form-block input {
-    width: 90%;
-    height: 40px;
+    width: 100%;
+    height: 50px;
     margin-bottom: 4%;
-    border-width: 1px;
-    outline: none;
+    border: 1px solid;
     border-color: rgb(199, 199, 199);
     border-radius: 4px;
     padding: 8px 8px 8px 13px;
     font-size: 13px;
     font-family: 'Poppins';
     font-weight: 500;
+    
 }
 
 .label-after-text {
@@ -102,4 +123,108 @@ button {
 
 .label-after-text b {
     color: hsl(0, 100%, 74%) ;
+}
+
+
+/* --------EFFECTS--------- */
+
+.subscribe-button:hover {
+    cursor: pointer;
+    transform: translateY(-4px);
+    transform: scale(1.03);
+    transition: all 100ms;
+    
+}
+
+.subscribe-button:active {
+    transform: scale(0.97);
+    transition: all 100ms;
+}
+
+.submit-button:hover {
+    cursor: pointer;
+    transform: translateY(-4px);
+    transform: scale(1.03);
+    transition: all 100ms;
+}
+
+.submit-button:active {
+    transform: scale(0.97);
+    transition: all 100ms;
+}
+
+input:focus {
+    outline: none;
+    border-color: hsl(248, 32%, 49%);
+    box-shadow: 0 0 0 0.1px hsl(248, 32%, 49%);
+}
+
+
+/* ---------FOR JS---------- */
+
+.icon {
+    background-image: url(images/icon-error.svg);
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-image: none;
+}
+
+.text-input {
+    font-size: 10px;
+    font-style: italic;
+    font-weight: 500;
+    margin-top: -10px;
+    margin-left: 40%;
+    color: rgba(255,121,120, 0.9);
+    display: none;
+}
+
+.icon.wrong {
+    background-image: url(images/icon-error.svg);
+    animation: shake 0.4s ease-in-out;
+    outline: none;
+    border-color: hsl(347, 87%, 69%);
+    box-shadow: 0 0 0 0.1px;
+}
+
+.text-input.wrong {
+    display: block;
+    animation: shake 0.4s ease-in-out;
+}
+
+
+/* --------RESPONSIVE--------- */
+
+@media (min-width: 1024px) {
+    .main-block {
+        display: flex;
+        flex-direction: row;
+    }
+
+    body {
+        height: 1dvh;
+    }
+
+    .text-block h1 {
+        /* padding-left: 10%;
+        padding-right: 10%; */
+        font-size: 55px;
+        line-height: 1;
+        text-align: left;
+        margin: 0 0 30px 0;
+    }
+
+    .text-block p {
+        /* padding-left: 20%;
+        padding-right: 15%; */
+        text-align: left;
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .text-block {
+        width: 60%;
+        padding-left: 15%;
+        padding-right: 10%;
+    }
 }
